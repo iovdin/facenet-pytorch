@@ -317,6 +317,9 @@ class MTCNN(nn.Module):
                 self.device
             )
 
+        if batch_boxes is None:
+            return None, None, None
+
         boxes, probs, points = [], [], []
         for box, point in zip(batch_boxes, batch_points):
             box = np.array(box)

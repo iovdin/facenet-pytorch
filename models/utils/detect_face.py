@@ -80,6 +80,8 @@ def detect_face(imgs, minsize, pnet, rnet, onet, threshold, factor, device):
         scale_picks.append(pick + offset)
         offset += boxes_scale.shape[0]
 
+    if len(boxes) == 0:
+        return None, None
     boxes = torch.cat(boxes, dim=0)
     image_inds = torch.cat(image_inds, dim=0)
 
